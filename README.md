@@ -1,10 +1,10 @@
 # Pattern-Aware GRAPE
 
-Extensions to [GRAPE](https://snap.stanford.edu/grape/) that encode missingness patterns for tabular data with missing values.
+This is an extensions to [GRAPE](https://snap.stanford.edu/grape/) that encode missingness patterns for tabular data with missing values.
 
-Standard approaches either drop incomplete samples or impute missing values, ignoring the fact that *which* features are missing can itself be informative. For example, in clinical data, the tests a physician orders depend on patient presentation—so the pattern of missingness carries diagnostic signal.
+Standard approaches either drop incomplete samples or impute missing values, ignoring the fact that which features are missing can itself be informative. For example, in clinical data, the tests a physician orders depend on patient presentation therefore the pattern of missingness could possibly carries diagnostic signal.
 
-This code adds pattern encoders to GRAPE's bipartite graph representation.
+This code adds additional pattern encoders and tests to GRAPE's bipartite graph representation.
 
 ## Methods
 
@@ -17,7 +17,7 @@ This code adds pattern encoders to GRAPE's bipartite graph representation.
 | `GRAPE-StatisticalPattern` | Handcrafted features |
 | `GRAPE-HierarchicalPattern` | Bottleneck MLP |
 
-## Results
+## General Results
 
 Averaged over 7 UCI datasets with natural missingness:
 
@@ -25,9 +25,9 @@ Averaged over 7 UCI datasets with natural missingness:
 - +22% F1-macro
 - Random embeddings ≈ learned (0.650 vs 0.663)
 
-Results vary by dataset—annealing sees +80%, voting only +4%.
+Results vary by dataset—annealing sees +80%, voting only +4%. Again, sucessful application/improvement with this extension assumes that the additonal of the missingness pattern improves the data or contributes to prediction.
 
-## Install
+## Quick Install for Use
 
 ```bash
 pip install -r requirements.txt
@@ -65,7 +65,7 @@ main.py
 
 All from UCI with natural missingness: annealing (65%), hepatitis (5.7%), soybean (6.6%), thyroid (78%), voting (5.6%), physionet_sepsis (28%), nhanes (39%).
 
-## References
+## primary References
 
 - You et al. "Handling Missing Data with Graph Representation Learning." NeurIPS 2020.
 - Veličković et al. "Graph Attention Networks." ICLR 2018.
